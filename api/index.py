@@ -46,8 +46,9 @@ class handler(BaseHTTPRequestHandler):
             
         except Exception as e:
             logger.error(f"Critical Error: {e}")
-            self.send_response(500)
+            self.send_response(200) 
             self.end_headers()
+            self.wfile.write(b"OK")
 
     def do_GET(self):
         """Sanity check to see if the server is running"""
