@@ -50,6 +50,13 @@ class Views:
         "<i>Waiting for input...</i>"
     )
 
+    SETTINGS = (
+        "<b>⚙️ System Settings</b>\n\n"
+        "Configure your Guild preferences here.\n"
+        "Current version: v1.0 (Serverless)\n\n"
+        "<i>Toggle options below:</i>"
+    )
+
     HELP = (
         "<b>📜 Scribe's Guide</b>\n\n"
         "<b>Adding Expenses:</b>\n"
