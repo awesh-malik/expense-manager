@@ -75,6 +75,30 @@ def get_main_menu_keyboard():
     ]
     return InlineKeyboardMarkup(keyboard)
 
+def get_members_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton("✋ Join Guild", callback_data='btn_join'),
+            InlineKeyboardButton("🚪 Leave", callback_data='btn_leave')
+        ],
+        [
+            InlineKeyboardButton("🔙 Back to Hall", callback_data='btn_back_home')
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
+def get_settings_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton("🇺🇸 Language: EN", callback_data='btn_noop'),
+            InlineKeyboardButton("🔔 Alerts: ON", callback_data='btn_noop')
+        ],
+        [
+            InlineKeyboardButton("🔙 Back to Hall", callback_data='btn_back_home')
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
 def get_finances_keyboard():
     keyboard = [
         [
