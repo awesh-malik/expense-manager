@@ -11,7 +11,7 @@ from urllib.request import urlopen, Request
 from urllib.parse import urlencode
 
 # Environment variables (set in Vercel dashboard)
-BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+BOT_TOKEN = os.environ.get('TELEGRAM_TOKEN')
 DATABASE_URL = os.environ.get('DATABASE_URL')  # Automatically injected by Vercel+Neon
 
 def send_telegram_message(chat_id, text):
