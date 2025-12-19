@@ -145,3 +145,34 @@ def get_balances():
         return [] # Return empty if tables don't exist yet
     finally:
         conn.close()
+
+def get_all_users():
+    """
+    Fetches all registered users for the Members list.
+    """
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT username, joined_at FROM users ORDER BY joined_at DESC")
+            return cur.fetchall()
+    except Exception:
+        return []
+    finally:
+        conn.close()
+
+def register_user(user_id, username, full_name):
+    """
+    Manually adds a user (used for the 'Join' button).
+    """
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                INSERT INTO users (user_id, username, full_name)
+                VALUES (%s, %s, %s)
+                ON CONFLICT (user_id) DO UPDATE 
+                SET username = EXCLUDED.username, full_name = EXCLUDED.full_name
+            """, (user_id, username, full_name))
+            conn.commit()
+    finally:
+        conn.close()
